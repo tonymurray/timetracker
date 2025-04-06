@@ -56,7 +56,9 @@ class ReportItemMapper extends CompatibleMapper {
             $selectFields[] = 'min(user_uid) as "userUid"';
             $aggregation = false;
         } else {
-            $selectFields[] = '\'*\' as "details"';
+            /* $selectFields[] = '\'*\' as "details"'; */
+            /* Include item details in the report */
+            $selectFields[] = 'wi.details as "details"';
         }
 
         if (!$aggregation) {
